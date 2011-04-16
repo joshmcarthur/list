@@ -1,0 +1,33 @@
+%h1.circle.logo List
+
+%ul#popular
+  - List.popular.limit(25).each do |list|
+    %li
+      %a{:href => "#{HOST}/#{list.slug}", :title => list.title}= list.title
+      
+  
+
+  List isn't just any old to-do list. Why limit it to to-do? 
+#about
+  Create anything that might appear in any sort of order, and then
+  use it however you want - keep it to yourself, or share it with friends.
+  
+  Make it public, and watch people from all over the world contribute.
+  Mix things up to list almost any kind of information, and make your list look just the way you want it.
+  
+  Here are some starter ideas for a bit of inspiration:
+  %ul
+    %li Start a petition to support a cause
+    %li Jot down your shopping list and share with family or flatmates.
+    %li Create a list of tasks for yourself to improve your productivity.
+  
+  Get started now!
+  %div New list form goes here.
+  
+#quicksignup
+  To create your own lists, you will need to associate your Facebook or Twitter account with us. This is a one-off step, and is completely secure. 
+  
+  If you are concerned about your privacy, we encourage you to read the permissions we request from Facebook and Twitter before letting us access this information - if you have any concerns, just contact us!
+  
+  %strong We love new members. Welcome!
+  
