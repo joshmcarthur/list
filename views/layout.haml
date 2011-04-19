@@ -19,17 +19,38 @@
   %link{:href => 'favicon.ico', :type => 'application/x-icon', :rel => 'shortcut icon'}
   %link{:href => 'apple-touch-icon.png', :rel => 'apple-touch-icon', :type => 'image/png'}
 
-  %link{:href => 'css/screen.css', :rel => 'stylesheet', :type => 'text/css', :rel => 'screen, projection'}
-  %link{:href => 'css/print.css', :rel => 'stylesheet', :type => 'text/css', :rel => 'print'}
+  %link{:href => '/css/style.css', :rel => 'stylesheet', :type => 'text/css', :media => 'screen, projection'}
+  %link{:href => '/css/print.css', :rel => 'stylesheet', :type => 'text/css', :media => 'print'}
 
   /[if lt IE 8]
-    %link{:href => 'ie.css', :rel => 'stylesheet', :type => 'text/css', :rel => 'screen, projection'}
+    %link{:href => '/css/ie.css', :rel => 'stylesheet', :type => 'text/css', :rel => 'screen, projection'}
     
-  %script{:type => 'text/javascript', :src => 'js/modernizr.min.js'}
+  %script{:type => 'text/javascript', :src => '/js/modernizr.min.js'}
   
-%body
-  = yield
+%body.application
+  #container
+    %header#master
+      %h1#logo List
+      #account 
+        - unless @current_user
+          %ul
+            %li
+              %a{:href => "/auth/twitter"}
+                %img{:src => "/images/twitter.png"}
+                Login using Twitter
+            %li
+              %a{:href => "/auth/facebook"}
+                %img{:src => "/images/facebook.png"}
+                Login using Facebook
+        - else
+          %p
+            %span.name= "Logged in as #{@current_user.name}."
+            %span.logout
+              Finished? Not you? 
+              %a{:href => "/logout"} Logout
+    #content
+      = yield
   
-  %script{:type => 'text/javascript', :src => 'js/jquery.min.js'}
-  %script{:type => 'text/javascript', :src => 'js/application.min.js'}
+  %script{:type => 'text/javascript', :src => '/js/jquery.min.js'}
+  %script{:type => 'text/javascript', :src => '/js/application.min.js'}
         

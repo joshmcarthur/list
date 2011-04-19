@@ -9,9 +9,10 @@ gem 'data_objects'
 gem 'do_sqlite3'
 gem 'rdiscount'
 gem 'haml'
+gem 'omniauth'
 
 group :test do
   gem 'rspec', '=2.4.0'
   gem 'rack-test'
-	gem 'awesome_print'
+  gem 'awesome_print'
 end
